@@ -17,3 +17,20 @@ public class CreditCardPayment implements PaymentStrategy{
         System.out.println("Paying with credit card: " + amount);
     }
 }
+
+
+// If using Builder Pattern, we can create a PaymentRequest object and pass it to the PaymentStrategy.
+
+public class CreditCardPaymentStrategy implements PaymentStrategy{
+    @Override
+    public void pay(PaymentRequest paymentRequest){
+        System.out.println("Paying with credit card: " + paymentRequest.getAmount());
+        System.out.println("Card Number: " + paymentRequest.getCardNumber());
+        System.out.println("Name: " + paymentRequest.getName());
+        System.out.println("Expiry Date: " + paymentRequest.getExpiryDate());
+        System.out.println("CVV: " + paymentRequest.getCvv());
+
+        // Process the payment
+        System.out.println("Processing payment with credit card: " + paymentRequest.getAmount());
+    }
+}
